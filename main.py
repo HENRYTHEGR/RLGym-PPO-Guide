@@ -1,7 +1,7 @@
 import numpy as np
 from rlgym_sim.utils.gamestates import GameState
 from rlgym_ppo.util import MetricsLogger
-
+import os
 
 class ExampleLogger(MetricsLogger):
     def _collect_metrics(self, game_state: GameState) -> list:
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     learner = Learner(build_rocketsim_env,
                       n_proc=n_proc,
                       render=True,
-                      render_delay=2,
+                      render_delay=1/120,
                       policy_layer_sizes=[2048,2048,1024,1024],
                       critic_layer_sizes=[2048,2048,1024,1024],
                       ppo_ent_coef=0.01,

@@ -1,0 +1,24 @@
+2026-05-24 21:33:57,367 INFO    MainThread:17688 [wandb_setup.py:_flush():81] Current SDK version is 0.27.0
+2026-05-24 21:33:57,367 INFO    MainThread:17688 [wandb_setup.py:_flush():81] Configure stats pid to 17688
+2026-05-24 21:33:57,367 INFO    MainThread:17688 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-05-24 21:33:57,367 INFO    MainThread:17688 [wandb_init.py:setup_run_log_directory():723] Logging user logs to C:\PROGRAMMING\RLBOTS\MachineLearningBots\RLGym-PPO-Guide\wandb\run-20260524_213357-la9yu5z8\logs\debug.log
+2026-05-24 21:33:57,367 INFO    MainThread:17688 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to C:\PROGRAMMING\RLBOTS\MachineLearningBots\RLGym-PPO-Guide\wandb\run-20260524_213357-la9yu5z8\logs\debug-internal.log
+2026-05-24 21:33:57,376 INFO    MainThread:17688 [wandb_init.py:init():851] calling init triggers
+2026-05-24 21:33:57,376 INFO    MainThread:17688 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'n_proc': 32, 'min_inference_size': 29, 'timestep_limit': 1000000000, 'exp_buffer_size': 1500000, 'ts_per_iteration': 50000, 'standardize_returns': True, 'standardize_obs': False, 'policy_layer_sizes': [2048, 2048, 1024, 1024], 'critic_layer_sizes': [2048, 2048, 1024, 1024], 'ppo_epochs': 1, 'ppo_batch_size': 50000, 'ppo_minibatch_size': 50000, 'ppo_ent_coef': 0.01, 'ppo_clip_range': 0.2, 'gae_lambda': 0.95, 'gae_gamma': 0.99, 'policy_lr': 0.0003, 'critic_lr': 0.0003, 'shm_buffer_size': 8192, '_wandb': {}}
+2026-05-24 21:33:57,376 INFO    MainThread:17688 [wandb_init.py:init():899] starting backend
+2026-05-24 21:33:59,652 INFO    MainThread:17688 [wandb_init.py:init():914] sending inform_init request
+2026-05-24 21:33:59,953 INFO    MainThread:17688 [wandb_init.py:init():919] backend started and connected
+2026-05-24 21:33:59,967 INFO    MainThread:17688 [wandb_init.py:init():989] updated telemetry
+2026-05-24 21:34:00,034 INFO    MainThread:17688 [wandb_init.py:init():1012] communicating run to backend with 90.0 second timeout
+2026-05-24 21:34:00,349 INFO    MainThread:17688 [wandb_init.py:init():1057] starting run threads in backend
+2026-05-24 21:34:00,374 INFO    MainThread:17688 [wandb_run.py:_console_start():2509] atexit reg
+2026-05-24 21:34:00,375 INFO    MainThread:17688 [wandb_run.py:_redirect():2359] redirect: wrap_raw
+2026-05-24 21:34:00,375 INFO    MainThread:17688 [wandb_run.py:_redirect():2428] Wrapping output streams.
+2026-05-24 21:34:00,375 INFO    MainThread:17688 [wandb_run.py:_redirect():2451] Redirects installed.
+2026-05-24 21:34:00,378 INFO    MainThread:17688 [wandb_init.py:init():1095] run started, returning control to user process
+2026-05-24 21:35:56,421 INFO    MainThread:17688 [wandb_run.py:_finish():2271] finishing run henryj-winchester-the-harley-school/rlgym-ppo/la9yu5z8
+2026-05-24 21:35:56,422 INFO    MainThread:17688 [wandb_run.py:_atexit_cleanup():2476] got exitcode: 0
+2026-05-24 21:35:56,422 INFO    MainThread:17688 [wandb_run.py:_restore():2458] restore
+2026-05-24 21:35:56,423 INFO    MainThread:17688 [wandb_run.py:_restore():2464] restore done
+2026-05-24 21:35:57,153 INFO    MainThread:17688 [wandb_run.py:_footer_sync_info():3877] logging synced files

@@ -1,0 +1,54 @@
+{
+    "cumulative_timesteps": 3901246,
+    "cumulative_model_updates": 1179,
+    "policy_average_reward": 0.9600612611705991,
+    "epoch": 75,
+    "ts_since_last_save": 100026,
+    "reward_running_stats": {
+        "mean": [
+            -0.012097149214283901
+        ],
+        "var": [
+            11064.919510891008
+        ],
+        "shape": [
+            1
+        ],
+        "count": 11700
+    },
+    "wandb_run_id": "la9yu5z8",
+    "wandb_project": "rlgym-ppo",
+    "wandb_entity": "henryj-winchester-the-harley-school",
+    "wandb_group": "unnamed-runs",
+    "wandb_config": {
+        "n_proc": 32,
+        "min_inference_size": 29,
+        "timestep_limit": 1000000000,
+        "exp_buffer_size": 1500000,
+        "ts_per_iteration": 50000,
+        "standardize_returns": true,
+        "standardize_obs": false,
+        "policy_layer_sizes": [
+            2048,
+            2048,
+            1024,
+            1024
+        ],
+        "critic_layer_sizes": [
+            2048,
+            2048,
+            1024,
+            1024
+        ],
+        "ppo_epochs": 1,
+        "ppo_batch_size": 50000,
+        "ppo_minibatch_size": 50000,
+        "ppo_ent_coef": 0.01,
+        "ppo_clip_range": 0.2,
+        "gae_lambda": 0.95,
+        "gae_gamma": 0.99,
+        "policy_lr": 0.0003,
+        "critic_lr": 0.0003,
+        "shm_buffer_size": 8192
+    }
+}

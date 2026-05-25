@@ -1,0 +1,9 @@
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_setup.py:_flush():81] Current SDK version is 0.27.0
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_setup.py:_flush():81] Configure stats pid to 22020
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_init.py:setup_run_log_directory():723] Logging user logs to C:\PROGRAMMING\RLBOTS\MachineLearningBots\RLGym-PPO-Guide\wandb\run-20260524_214227-la9yu5z8\logs\debug.log
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to C:\PROGRAMMING\RLBOTS\MachineLearningBots\RLGym-PPO-Guide\wandb\run-20260524_214227-la9yu5z8\logs\debug-internal.log
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_init.py:init():851] calling init triggers
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'n_proc': 32, 'min_inference_size': 29, 'timestep_limit': 1000000000, 'exp_buffer_size': 1500000, 'ts_per_iteration': 50000, 'standardize_returns': True, 'standardize_obs': False, 'policy_layer_sizes': [2048, 2048, 1024, 1024], 'critic_layer_sizes': [2048, 2048, 1024, 1024], 'ppo_epochs': 1, 'ppo_batch_size': 50000, 'ppo_minibatch_size': 50000, 'ppo_ent_coef': 0.01, 'ppo_clip_range': 0.2, 'gae_lambda': 0.95, 'gae_gamma': 0.99, 'policy_lr': 0.0003, 'critic_lr': 0.0003, 'shm_buffer_size': 8192, '_wandb': {}}
+2026-05-24 21:42:27,868 INFO    MainThread:22020 [wandb_init.py:init():899] starting backend
