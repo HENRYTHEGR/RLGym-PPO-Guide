@@ -1,0 +1,40 @@
+{
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "CPython 3.11.9",
+  "startedAt": "2026-05-25T16:58:46.690318Z",
+  "program": "c:\\PROGRAMMING\\RLBOTS\\MachineLearningBots\\RLGym-PPO-Guide\\main.py",
+  "codePath": "main.py",
+  "codePathLocal": "main.py",
+  "git": {
+    "remote": "https://github.com/HENRYTHEGR/RLGym-PPO-Guide.git",
+    "commit": "1768c161ffa5bb665024cb7bff198737bbd1283e"
+  },
+  "email": "henryj.winchester@outlook.com",
+  "root": "C:\\PROGRAMMING\\RLBOTS\\MachineLearningBots\\RLGym-PPO-Guide",
+  "host": "Hanks_Tank",
+  "executable": "C:\\PROGRAMMING\\RLBOTS\\MachineLearningBots\\RLGym-PPO-Guide\\venv\\Scripts\\python.exe",
+  "cpu_count": 24,
+  "cpu_count_logical": 32,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1022879592448",
+      "used": "626668912640"
+    }
+  },
+  "memory": {
+    "total": "68388216832"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada",
+      "uuid": "GPU-0aa0b3b7-f0ff-666e-8987-35ec98bb110e"
+    }
+  ],
+  "cudaVersion": "13.2",
+  "writerId": "t4jnep99g2wj3d9wtj5pksj8q89e2nzd"
+}

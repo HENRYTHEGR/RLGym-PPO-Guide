@@ -1,0 +1,84 @@
+Checkpoint loaded!
+Learner successfully initialized!
+Press (p) to pause (c) to checkpoint, (q) to checkpoint and quit (after next iteration)
+
+--------BEGIN ITERATION REPORT--------
+Policy Reward: 1.65135
+Policy Entropy: 1.08032
+Value Function Loss: 0.10171
+
+Mean KL Divergence: -0.00000
+SB3 Clip Fraction: 0.00000
+Policy Update Magnitude: 0.32645
+Value Function Update Magnitude: 0.17165
+
+Collected Steps per Second: 13,393.89715
+Overall Steps per Second: 9,955.76439
+
+Timestep Collection Time: 3.73409
+Timestep Consumption Time: 1.28953
+PPO Batch Consumption Time: 0.42319
+Total Iteration Time: 5.02362
+
+Cumulative Model Updates: 255,645
+Cumulative Timesteps: 431,628,202
+
+Timesteps Collected: 50,014
+--------END ITERATION REPORT--------
+
+
+--------BEGIN ITERATION REPORT--------
+Policy Reward: 2.69794
+Policy Entropy: 1.10353
+Value Function Loss: 0.08060
+
+Mean KL Divergence: 0.02419
+SB3 Clip Fraction: 0.05849
+Policy Update Magnitude: 0.73322
+Value Function Update Magnitude: 0.42079
+
+Collected Steps per Second: 17,490.96964
+Overall Steps per Second: 13,235.86742
+
+Timestep Collection Time: 2.85999
+Timestep Consumption Time: 0.91944
+PPO Batch Consumption Time: 0.13910
+Total Iteration Time: 3.77943
+
+Cumulative Model Updates: 255,647
+Cumulative Timesteps: 431,678,226
+
+Timesteps Collected: 50,024
+--------END ITERATION REPORT--------
+
+
+Saving checkpoint 431678226...
+Checkpoint 431678226 saved!
+
+--------BEGIN ITERATION REPORT--------
+Policy Reward: 1.71826
+Policy Entropy: 1.10945
+Value Function Loss: 0.07198
+
+Mean KL Divergence: 0.06188
+SB3 Clip Fraction: 0.16947
+Policy Update Magnitude: 1.14490
+Value Function Update Magnitude: 0.76954
+
+Collected Steps per Second: 20,919.29833
+Overall Steps per Second: 14,025.14950
+
+Timestep Collection Time: 2.39138
+Timestep Consumption Time: 1.17550
+PPO Batch Consumption Time: 0.17029
+Total Iteration Time: 3.56688
+
+Cumulative Model Updates: 255,650
+Cumulative Timesteps: 431,728,252
+
+Timesteps Collected: 50,026
+--------END ITERATION REPORT--------
+
+
+Saving checkpoint 431728252...
+Checkpoint 431728252 saved!

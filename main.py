@@ -52,10 +52,10 @@ def build_rocketsim_env():
     rewards_to_combine = (
                         SpeedTowardBallReward(),
                         InAirReward(),
-                        EventReward(touch=.2, goal=1, concede=-1, demo=0.1),
+                        EventReward(touch=0.001, goal=1, concede=-1, demo=0.1),
                         VelocityBallToGoalReward()
                     )
-    reward_weights = (0.01, 0.002, 10.0, 0.1)
+    reward_weights = (0.001, 0.000002, 20.0, 0.4)
 
     reward_fn = CombinedReward(reward_functions=rewards_to_combine,
                                reward_weights=reward_weights)
@@ -114,6 +114,6 @@ if __name__ == "__main__":
                       standardize_returns=True,
                       standardize_obs=False,
                       save_every_ts=100_000,
-                      timestep_limit=1_000_000_000,
+                      timestep_limit=100_000_000_000,
                       log_to_wandb=True)
     learner.learn()
