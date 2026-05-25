@@ -1,5 +1,5 @@
 import numpy as np
-from rlgym_sim.utils import RewardFunction
+from .utils import RewardFunction
 from rlgym_sim.utils.gamestates import GameState, PlayerData
 
 '''
