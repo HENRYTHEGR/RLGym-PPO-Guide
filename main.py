@@ -73,6 +73,12 @@ def build_rocketsim_env():
                          reward_fn=reward_fn,
                          obs_builder=obs_builder,
                          action_parser=action_parser)
+    
+    # Add these lines right after "env = rlgym_sim.make( ..."
+    import rocketsimvis_rlgym_sim_client as rsv
+    type(env).render = lambda self: rsv.send_state_to_rocketsimvis(self._prev_state)
+
+    # That's it!
 
     return env
 
@@ -104,7 +110,6 @@ if __name__ == "__main__":
                       exp_buffer_size=1500000,
                       add_unix_timestamp=False,
                       ppo_minibatch_size=50000,
-                      ppo_ent_coef=0.001,
                       ppo_epochs=1,
                       standardize_returns=True,
                       standardize_obs=False,
