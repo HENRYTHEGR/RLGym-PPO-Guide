@@ -1,40 +1,32 @@
-from typing import Dict, Any
-
+from typing import Any
 import numpy as np
+from gym.spaces import Box 
 
-from rlgym.api import ActionParser, AgentID
-from rlgym.rocket_league.api import GameState
+from rlgym_sim.utils.action_parsers import ActionParser
+from rlgym_sim.utils.gamestates import GameState
 
-class DiscreteAction(ActionParser[AgentID, np.ndarray, np.ndarray, GameState, int]):
-    """
-    Simple discrete action space that maps an array of 8 values on the interval [-1, 1] into an array of valid car
-    controls.
-    """
-
+class DiscreteAction(ActionParser):
     def __init__(self):
         super().__init__()
-        # Rocket League expects 8 values per controller input.
         self._n_controller_inputs = 8
         
-    def get_action_space(self) -> tuple:
-        return float(self._n_controller_inputs), 'discrete'
+    def get_action_space(self) -> Box:
+        return Box(low=-1, high=1, shape=(self._n_controller_inputs,))
 
-    def reset(self, initial_state: GameState, shared_info: Dict[str, Any]) -> None:
+    def reset(self, initial_state: GameState) -> None:
         pass
 
-    def parse_actions(self, actions: Dict[AgentID, np.ndarray], state: GameState, shared_info: Dict[str, Any]) -> Dict[AgentID, np.ndarray]:
-        parsed_actions = {}
+    def parse_actions(self, actions: Any, state: GameState) -> np.ndarray:
+        # rlgym-sim passes actions as a numpy array. 
+        # We convert to asarray to be safe, then copy to avoid modifying the original.
+        controls = np.asarray(actions).copy()
         
-        # Loop over the agent action dictionary
-        for agent, action in actions.items():
-            # Copy the action into a new array
-            car_controls = np.zeros(self._n_controller_inputs)
-            car_controls[:] = action[:]
+        # Check if we have one agent (1D) or multiple agents (2D)
+        if controls.ndim == 1:
+            # Single agent case: indices 5, 6, 7 are Jump, Boost, Handbrake
+            controls[:] = np.round((controls[:] + 1) / 2)
+        else:
+            # Multi-agent case: apply to the last 3 columns for all rows
+            controls[:, :] = np.round((controls[:, :] + 1) / 2)
             
-            # All the actions from our policy will be on the interval [-1, 1], but the last 3 values in the car controls
-            # need to be either 0 or 1. We will shift and round the result such that any value below 0 becomes 0 and
-            # any value above 0 becomes 1.
-            car_controls[:] = np.round((car_controls[:] + 1) / 2)
-            parsed_actions[agent] = car_controls
-
-        return parsed_actions
+        return controls

@@ -57,7 +57,7 @@ def build_rocketsim_env():
                         EventReward(touch=1),
                         VelocityBallToGoalReward()
                     )
-    reward_weights = (5, .15, 1, 50, .1)
+    reward_weights = (5, .01, 1, 50, .1)
 
     reward_fn = CombinedReward(reward_functions=rewards_to_combine,
                                reward_weights=reward_weights)
@@ -93,13 +93,21 @@ if __name__ == "__main__":
 
     # educated guess - could be slightly higher or lower
     min_inference_size = max(1, int(round(n_proc * 0.9)))
-    latest_checkpoint_dir = "data/checkpoints/rlgym-ppo-run/"
-    # Note: You MUST disable the "add_unix_timestamp" learner setting for this to work properly
-    try:
-        latest_checkpoint_dir = "data/checkpoints/rlgym-ppo-run/" + str(max(os.listdir("data/checkpoints/rlgym-ppo-run"), key=lambda d: int(d)))
-    except ValueError:
-        print("No checkpoints found.")
-        exit()
+    checkpoint_base = "data/checkpoints/rlgym-ppo-run"
+    latest_checkpoint_dir = None
+
+    # 2. Check if the directory exists and has numbered folders
+    if os.path.exists(checkpoint_base):
+        # We only want folders that are digits (timesteps)
+        checkpoints = [d for d in os.listdir(checkpoint_base) if d.isdigit()]
+        if checkpoints:
+            # Join the path correctly to the highest numbered folder
+            latest_checkpoint_dir = os.path.join(checkpoint_base, max(checkpoints, key=int))
+            print(f"Loading from: {latest_checkpoint_dir}")
+        else:
+            print("No numbered checkpoint folders found. Starting from scratch.")
+    else:
+        print("Checkpoint base directory not found. Starting from scratch.")
 
     learner = Learner(build_rocketsim_env,
                       n_proc=n_proc,
@@ -112,7 +120,7 @@ if __name__ == "__main__":
                       min_inference_size=min_inference_size,
                       metrics_logger=metrics_logger,
                       ppo_batch_size=50000,
-                      ts_per_iteration=50000,
+                      ts_per_iteration=5000,
                       exp_buffer_size=1500000,
                       add_unix_timestamp=False,
                       ppo_minibatch_size=50000,
@@ -121,5 +129,5 @@ if __name__ == "__main__":
                       standardize_obs=False,
                       save_every_ts=100_000,
                       timestep_limit=100_000_000_000,
-                      log_to_wandb=True)
+                      log_to_wandb=False)
     learner.learn()
