@@ -22,7 +22,13 @@ class SpeedTowardBallReward(RewardFunction):
 
         return float(max(speed_toward_ball / common_values.CAR_MAX_SPEED, 0.0))
 
-
+# class FaceBallReward(RewardFunction):
+#     def reset(self, initial_state: GameState):
+#         pass
+    
+#     def get_reward(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> float:
+        
+        
 class InAirReward(RewardFunction):
     """Rewards the agent for being in the air"""
     

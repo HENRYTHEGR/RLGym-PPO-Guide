@@ -25,12 +25,13 @@ class ExampleLogger(MetricsLogger):
 def build_rocketsim_env():
     import rlgym_sim
     from rlgym_sim.utils.reward_functions import CombinedReward
-    from rlgym_sim.utils.reward_functions.common_rewards import EventReward
+    from rlgym_sim.utils.reward_functions.common_rewards import EventReward, FaceBallReward
     from rewards import SpeedTowardBallReward, InAirReward, VelocityBallToGoalReward
     from rlgym_sim.utils.obs_builders import DefaultObs
     from rlgym_sim.utils.terminal_conditions.common_conditions import NoTouchTimeoutCondition, GoalScoredCondition
     from rlgym_sim.utils import common_values
     from rlgym_sim.utils.action_parsers import ContinuousAction
+    from disreteActionParser import DiscreteAction
 
     spawn_opponents = True
     team_size = 1
@@ -39,7 +40,7 @@ def build_rocketsim_env():
     timeout_seconds = 10
     timeout_ticks = int(round(timeout_seconds * game_tick_rate / tick_skip))
 
-    action_parser = ContinuousAction()
+    action_parser = DiscreteAction()
     terminal_conditions = [NoTouchTimeoutCondition(timeout_ticks), GoalScoredCondition()]
     ## Format: (reward, weight)
     # rewards = (
@@ -52,10 +53,11 @@ def build_rocketsim_env():
     rewards_to_combine = (
                         SpeedTowardBallReward(),
                         InAirReward(),
-                        EventReward(touch=0.001, goal=1, concede=-1, demo=0.1),
+                        FaceBallReward(),
+                        EventReward(touch=1),
                         VelocityBallToGoalReward()
                     )
-    reward_weights = (0.001, 0.000002, 20.0, 0.4)
+    reward_weights = (5, .15, 1, 50, .1)
 
     reward_fn = CombinedReward(reward_functions=rewards_to_combine,
                                reward_weights=reward_weights)
@@ -91,9 +93,13 @@ if __name__ == "__main__":
 
     # educated guess - could be slightly higher or lower
     min_inference_size = max(1, int(round(n_proc * 0.9)))
-
+    latest_checkpoint_dir = "data/checkpoints/rlgym-ppo-run/"
     # Note: You MUST disable the "add_unix_timestamp" learner setting for this to work properly
-    latest_checkpoint_dir = "data/checkpoints/rlgym-ppo-run/" + str(max(os.listdir("data/checkpoints/rlgym-ppo-run"), key=lambda d: int(d)))
+    try:
+        latest_checkpoint_dir = "data/checkpoints/rlgym-ppo-run/" + str(max(os.listdir("data/checkpoints/rlgym-ppo-run"), key=lambda d: int(d)))
+    except ValueError:
+        print("No checkpoints found.")
+        exit()
 
     learner = Learner(build_rocketsim_env,
                       n_proc=n_proc,
