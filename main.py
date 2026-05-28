@@ -120,7 +120,7 @@ if __name__ == "__main__":
                       min_inference_size=min_inference_size,
                       metrics_logger=metrics_logger,
                       ppo_batch_size=50000,
-                      ts_per_iteration=5000,
+                      ts_per_iteration=3000,
                       exp_buffer_size=1500000,
                       add_unix_timestamp=False,
                       ppo_minibatch_size=50000,
